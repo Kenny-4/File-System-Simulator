@@ -1,0 +1,6 @@
+*.o
+*.txt
+*.exe
+*.vscode
+*.stackdump
+main

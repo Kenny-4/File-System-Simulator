@@ -1,0 +1,28 @@
+# Compiler
+CC = g++
+
+# Compiler flags
+FLAGS =
+
+# Project name/executable
+PROJECT = main
+
+#Source files (make sure these are in the same folder with makefile)
+SRCS = main.cpp data.cpp iNodes.cpp Directory.cpp
+
+#Object files (generated from source files)
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(PROJECT)
+
+$(PROJECT): $(OBJS)
+	$(CC) $(FLAGS) -o $(PROJECT) $(OBJS)
+	
+run: $(PROJECT)
+	./$(PROJECT) > $(PROJECT)output.txt
+	
+%.o: %.cpp
+	$(CC) $(FLAGS) -c -o $@ $<
+	
+clean:
+	$(RM) $(PROJECT) $(OBJS)
